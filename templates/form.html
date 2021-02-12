@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}Madlibs: Form{% endblock %}
+{% block title %}Parts of Speech{% endblock %}
 
 {% block content %}
-    <h1>Madlibs</h1>
+    <h1>Really there are no wrong answers... (but some answers are definitely better than others)</h1>
     <form action="/story">
-        <input type="text" placeholder="your name" name="username">
-        <label for="compliments">Do you want compliments?</label>
-        <input type="checkbox" name="wants_compliments" id="compliments">
-        <button type="submit">Submit!</button>
+        {% for prompt in prompts %}
+        <label for="{{prompt}}_{{loop.index}}">{{prompt}}:</label>
+        <input type="text" placeholder="" id="{{prompt}}_{{loop.index}}" name="{{prompt}}">
+        <br>
+        {% endfor %}
+        <input type="hidden" name='story' value='{{story.story_id}}'>
+        <button type="submit">Submit</button>
     </form>
 {% endblock %}
