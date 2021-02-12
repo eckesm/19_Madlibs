@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Madlibs: Form{% endblock %}
+
+{% block content %}
+    <h1>Madlibs</h1>
+    <form action="/story">
+        <input type="text" placeholder="your name" name="username">
+        <label for="compliments">Do you want compliments?</label>
+        <input type="checkbox" name="wants_compliments" id="compliments">
+        <button type="submit">Submit!</button>
+    </form>
+{% endblock %}
